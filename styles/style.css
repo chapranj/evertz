@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: visible;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button {
+    display: block;
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 2px;
+    text-align: left;
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+.main-container {
+    flex: 1;
+    padding: 20px;
+    padding-left: 18vw;
+    width: 80%;
+    /* Adjusted to accommodate sidebar width */
+    /* Adjusted to prevent overlapping */
+    margin-left: 7vw;
+    overflow-y: auto;
+}
+
+.main-container img {
+    max-width: 100%;
+    /* Ensure images don't exceed container width */
+    max-height: 100%;
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+/* Style for individual content sections */
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.sub-button {
+    margin-left: 20px;
+}
+
+.sub-sub-button {
+    margin-left: 40px;
+}
+
+.sub-sub-sub-button {
+    margin-left: 60px;
+}
+
+
+.home_page ol {
+    counter-reset: item;
+}
+
+.home_page li {
+    display: block;
+}
+
+.home_page li:before {
+    content: counters(item, ".") ". ";
+    counter-increment: item;
+}
+
+/* Style for the expandable button */
+.expandable {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #eee;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Style for the arrow icon */
+.expandable .arrow {
+    margin-left: auto;
+    /* Push the arrow to the right */
+    width: 10px;
+    height: 10px;
+    transform: rotate(0deg);
+    /* Initially no rotation */
+    transition: transform 1s;
+    /* Smooth transition when rotating */
+}
+
+/* Rotate the arrow icon when the button is expanded */
+.arrow-container {
+    display: inline-block;
+    /* Ensures the container wraps the span */
+    transition: transform 0.3s ease;
+    /* Smooth transition for the rotation */
+}
+
+.arrow-container.expanded {
+    transform: rotate(90deg);
+    /* Rotate the container 90 degrees */
+}
+
+.expanded {
+    transform:rotate(90deg);
+}
+
+
+.buttons-container {
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+button.highlight {
+    background-color: blueviolet;
+    color: white;
+}
+
+.sidebarButtonContainer{
+    position: relative;
+
+}
+
+#expand_collapse {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white; /* Ensure buttons are visible on any background */
+    padding: 10px; /* Add padding for better spacing */
+}
+
+#expand_collapse button{
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 5px;
+
+    margin: 5px;
+}

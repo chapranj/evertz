@@ -1,0 +1,172 @@
+<body>
+    <div class="new">
+        <div id="toc">
+            <div>
+                <h2>XPS-EDGE-HW/5782XPS-HW User Guide</h2>
+                <p>
+                    This user’s guide explains how to configure and manage XPS EDGE to stream real-time high quality
+                    and low
+                    latency video, audio, and metadata over any IP network.
+                </p>
+            </div>
+            <!-- Table of Contents Section -->
+            <div class="contents">
+                <h2 class="new">TABLE OF CONTENTS</h2>
+                <b>
+                    <ol>
+                        <li><a href="#overview" onclick="scrollToSection('overview')">OVERVIEW</a></li>
+                        <li>
+                            <a href="#spec" onclick="scrollToSection('spec')">SPECIFICATIONS</a>
+                            <ol>
+                                <li><a href="#spec_vid" onclick="scrollToSection('spec_vid')">VIDEO INPUTS/OUTPUTS</a>
+                                </li>
+                                <li><a href="#spec_aud" onclick="scrollToSection('spec_vid')">AUDIO</a></li>
+                                <li><a href="#spec_vanc" onclick="scrollToSection('spec_vanc')">VANC</a>
+                                <li><a href="#spec_control" onclick="scrollToSection('spec_control')">CONTROL</a></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <a href="#getting_started" onclick="scrollToSection('getting_started')">GETTING STARTED</a>
+                            <ol>
+                                <li>
+                                    <a href="#xpsedge" onclick="scrollToSection('xpsedge')">XPS-EDGE-HW</a>
+                                    <ol>
+                                        <li>
+                                            <a href="#connectionsxps"
+                                                onclick="scrollToSection('connectionsxps')">CONNECTIONS AND SDI
+                                                PORTS</a>
+                                            <ol>
+                                                <li><a href="#sdi_3g" onclick="scrollToSection('sdi_3g')">SDI Mapping
+                                                        for XPS EDGE 3G APPs</a></li>
+                                                <li><a href="#sdi_4k" onclick="scrollToSection('sdi_4k')">SDI Mapping
+                                                        for XPS EDGE 4K APPs</a></li>
+                                                <li><a href="#sdi_udx" onclick="scrollToSection('sdi_udx')">SDI Mapping
+                                                        for XPS EDGE UDX APPs</a>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <a href="#5782xps" onclick="scrollToSection('5782xps')">5782XPS-HW</a>
+                                    <ol>
+                                        <li>
+                                            <a href="#connections5782xps"
+                                                onclick="scrollToSection('connections5782xps')">CONNECTIONS AND SDI
+                                                PORTS</a>
+                                            <ol>
+                                                <li><a href="#sdi_5782_3g" onclick="scrollToSection('sdi_5782_3g')">SDI
+                                                        Mapping for 5782XPS-HW 3G apps</a>
+                                                </li>
+                                                <li><a href="#sdi_5782_4k" onclick="scrollToSection('sdi_5782_4k')">SDI
+                                                        Mapping for 5782XPS-HW 4K APPs</a>
+                                                </li>
+                                                <li><a href="#sdi_5782_udx3g"
+                                                        onclick="scrollToSection('sdi_5782_udx3g')">SDI Mapping for
+                                                        5782XPS-HW 3G UDX
+                                                        apps</a>
+                                                <li><a href="#sdi_5782_udx4k"
+                                                        onclick="scrollToSection('sdi_5782_udx4k')">SDI Mapping for
+                                                        5782XPS-HW 4K UDX
+                                                        apps</a>
+                                                <li><a href="#sdi_5782_ST2110"
+                                                        onclick="scrollToSection('sdi_5782_ST2110')">SDI Mapping for
+                                                        5782XPS-HW ST2110
+                                                        apps</a>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+
+                                <li>
+                                    <a href="#control" onclick="scrollToSection('control')">CONTROL PORT IP
+                                        CONFIGURATION</a>
+                                    <ol>
+                                        <li><a href="#opt1" onclick="scrollToSection('opt1')">Option 1: Configure IP
+                                                Through Web GUI</a></li>
+                                        <li><a href="#opt2" onclick="scrollToSection('opt2')">Option 2: Configure IP
+                                                Through USB Serial Port</a></li>
+                                    </ol>
+                                </li>
+                                <li><a href="#dns" onclick="scrollToSection('dns')">DNS CONFIGURATION</a></li>
+                                <li><a href="#time" onclick="scrollToSection('time')">SYSTEM TIME AND NTP SERVER
+                                        CONFIGURATION</a></li>
+                                <li>
+                                    <a href="#config" onclick="scrollToSection('config')">CONFIGURE SYSTEM CONTROLS</a>
+                                    <ol>
+                                        <li><a href="#app_mode" onclick="scrollToSection('app_mode')">CONFIGURE ENCODER
+                                                APPLICATION MODE</a></li>
+                                        <li><a href="#multicast" onclick="scrollToSection('multicast')">ENABLE/DISABLE
+                                                UDP MULTICAST SUPPORT</a></li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <a href="#homepage" onclick="scrollToSection('homepage')">HOME PAGE</a>
+                                    <ol>
+                                        <li><a href="#home_page_quick_edit"
+                                                onclick="scrollToSection('home_page_quick_edit')">HOME PAGE QUICK
+                                                EDIT</a></li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <a href="#encoderconfiguration"
+                                        onclick="scrollToSection('encoderconfiguration')">ENCODER CONFIGURATION</a>
+                                    <ol>
+                                        <li><a href="#enc_control" onclick="scrollToSection('enc_control')">CONFIGURE
+                                                ENCODER CONTROL</a></li>
+                                        <li>
+                                            <a href="#enc_out" onclick="scrollToSection('enc_out')">CONFIGURE ENCODER
+                                                OUTPUT</a>
+                                            <ol>
+                                                <li><a href="#enc_rtmp" onclick="scrollToSection('enc_rtmp')">RTMP
+                                                        Output Protocol</a></li>
+                                                <li><a href="#enc_srt" onclick="scrollToSection('enc_srt')">SRT Output
+                                                        Protocol</a></li>
+                                                <li><a href="#enc_rist" onclick="scrollToSection('enc_rist')">RIST
+                                                        Output Protocol</a></li>
+                                                <li><a href="#enc_zixi" onclick="scrollToSection('enc_zixi')">ZIXI
+                                                        Output Protocol</a></li>
+                                                <li><a href="#enc_hls" onclick="scrollToSection('enc_hls')">HLS Output
+                                                        Protocol</a></li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <a href="#decoderconfiguration"
+                                        onclick="scrollToSection('decoderconfiguration')">DECODER CONFIGURATION</a>
+                                    <ol>
+                                        <li><a href="#dec_control" onclick="scrollToSection('dec_control')">CONFIGURE
+                                                DECODER CONTROL</a></li>
+                                        <li>
+                                            <a href="#dec_in" onclick="scrollToSection('dec_in')">CONFIGURE DECODER
+                                                INPUT</a>
+                                            <ol>
+                                                <li><a href="#dec_srt" onclick="scrollToSection('dec_srt')">SRT Input
+                                                        Protocol</a></li>
+                                                <li><a href="#dec_rist" onclick="scrollToSection('dec_rist')">RIST Input
+                                                        Protocol</a></li>
+                                                <li><a href="#dec_zixi" onclick="scrollToSection('dec_zixi')">ZIXI Input
+                                                        Protocol</a></li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li><a href="#presets" onclick="scrollToSection('presets')">PRESETS</a></li>
+                                <li><a href="#import_export" onclick="scrollToSection('import_export')">IMPORT &amp;
+                                        EXPORT SYSTEM CONFIGURATION FILES</a></li>
+                                <li>
+                                    <a href="#firmware" onclick="scrollToSection('firmware')">FIRMWARE UPGRADE</a>
+                                    <ol>
+                                        <li><a href="#adv_upgrade" onclick="scrollToSection('adv_upgrade')">FIRMWARE
+                                                UPGRADE USING ADV UI&reg;</a></li>
+                                    </ol>
+                                </li>
+                                <li><a href="#save_firmware" onclick="scrollToSection('save_firmware')">STEPS TO SAVE
+                                        MULTIPLE FIRMWARE</a></li>
+                            </ol>
+                </b>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
