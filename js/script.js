@@ -30,8 +30,6 @@ function showToc() {
     document.getElementsByTagName('*').classList.remove('highlight')
     var tocExists = document.getElementById('toc');
     if (tocExists) {
-
-        // If TOC already exists, don't add it again
         return;
     }
     originalContent = document.querySelector('.main-container').innerHTML;
@@ -51,9 +49,6 @@ function showToc() {
 
             mainContainer[0].innerHTML = newDiv.innerHTML
 
-            // Append the "newDiv" content to the main container
-            // const mainContainer = document.getElementById('main-container');
-            // mainContainer.innerHTML = newDiv.innerHTML;
 
         })
         .catch(error => console.error('Error loading table of contents:', error));
@@ -157,16 +152,20 @@ function toggleButtons(buttonsId) {
     }
 }
 
-function toggleNew(buttonsId, check){
-    var buttonsContainer = document.getElementById(buttonsId)
+function toggleNew(buttonsId, check) {
+    console.log("Checking buttons: "+buttonsId+" "+ check)
+    
+    var buttonsContainer = document.getElementById(buttonsId);
 
-    if(check){
-        buttonsContainer.style.display = 'block';
-    }
-    else{
-        buttonsContainer.style.display = 'none';
+    if (buttonsContainer) {
+        if (check) {
+            buttonsContainer.style.display = 'block';
+        } else {
+            buttonsContainer.style.display = 'none';
+        }
     }
 }
+
 
 function expandAll(button) {
     // Select all expandable sections
@@ -182,7 +181,7 @@ function expandAll(button) {
         }
     });
 
-    
+
 
 }
 
@@ -199,52 +198,57 @@ function collapseAll(button) {
             expanded = false;
         }
     });
-    if(!expanded){
+    if (!expanded) {
         document.querySelector('#expandButton').classList.remove('highlight')
     }
 
 }
 
-function isInViewport(el) {
-    var rect = el.getBoundingClientRect(),
-        vWidth = window.innerWidth || document.documentElement.clientWidth,
-        vHeight = window.innerHeight || document.documentElement.clientHeight;
+// function isInViewport(el) {
+//     var rect = el.getBoundingClientRect(),
+//         vWidth = window.innerWidth || document.documentElement.clientWidth,
+//         vHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    // Calculate the area of the element
-    var elementArea = (rect.right - rect.left) * (rect.bottom - rect.top);
+//     // Calculate the area of the element
+//     var elementArea = (rect.right - rect.left) * (rect.bottom - rect.top);
 
-    // Calculate the intersection area between the element and the viewport
-    var intersectionArea = Math.max(0, Math.min(rect.right, vWidth) - Math.max(rect.left, 0)) *
-        Math.max(0, Math.min(rect.bottom, vHeight) - Math.max(rect.top, 0));
+//     // Calculate the intersection area between the element and the viewport
+//     var intersectionArea = Math.max(0, Math.min(rect.right, vWidth) - Math.max(rect.left, 0)) *
+//         Math.max(0, Math.min(rect.bottom, vHeight) - Math.max(rect.top, 0));
 
-    // Calculate the percentage of the element's area that is visible in the viewport
-    var visiblePercentage = (intersectionArea / elementArea) * 100;
+//     // Calculate the percentage of the element's area that is visible in the viewport
+//     var visiblePercentage = (intersectionArea / elementArea) * 100;
 
-    // Return true if the visible percentage is greater than or equal to 50%
-    return visiblePercentage >= 60;
-}
+//     // Return true if the visible percentage is greater than or equal to 50%
+//     return visiblePercentage >= 60;
+// }
 
 
-
+const mainContainer = document.querySelector('.main-container')
 const sections = document.querySelectorAll('.main-container .new div[id]')
 var expandables = document.querySelectorAll('.expandable');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         const sectionID = entry.target.id;
-        if(entry.isIntersecting){
-            console.log('currently on'+ sectionID)
+        if (entry.isIntersecting) {
+            console.log('currently on' + sectionID)
         }
-        const buttonID = sectionID+'_button';
+        const buttonID = sectionID + '_button';
         const button = document.getElementById(buttonID);
-        if(button){
+        if (button) {
+            const expButton = document.querySelector(`button[onclick="scrollToSection('${sectionID}')"] .arrow-container`);
             button.classList.toggle('highlight', entry.isIntersecting)
+            
+            if (expButton) {
+                toggleNew(sectionID +'buttons', entry.isIntersecting);
+                expButton.classList.toggle('expanded',entry.isIntersecting)
+            }
         }
-
     })
 },{
-    threshold: 0.05
-
-})
+    threshold: 0.01,
+    rootMargin: '-100px'
+});
 
 sections.forEach(section => {
     observer.observe(section)
